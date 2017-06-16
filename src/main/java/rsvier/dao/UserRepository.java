@@ -1,13 +1,22 @@
 package rsvier.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
-import rsvier.model.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.security.access.annotation.Secured;
+
 import rsvier.model.User;
 
-public interface UserRepository extends JpaRepository<Person, Long> {
+public interface UserRepository  extends JpaRepository<User, Long> {
 
 	public User findUserByNameAndPassword(String name, String password);
+	
+	public User findUserByName(String name);
+	
+	public User save(User user);
+	
+	@Secured ({"ROLE_ADMIN"})
+	public List<User> getAllUsers();
 	
 	
 }

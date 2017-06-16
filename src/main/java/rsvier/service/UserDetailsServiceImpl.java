@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import rsvier.dao.UserRepository;
 import rsvier.model.User;
 
-//@Service
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;

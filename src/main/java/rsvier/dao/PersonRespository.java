@@ -7,9 +7,10 @@ import rsvier.model.Person;
 
 public interface PersonRespository extends JpaRepository<Person, Long> {
 
-	public Person findByPersonName();
+	public Person findBySurname(String surename);
 	
-	@Query("select p from Person where p.city=Groningen")
+	@Query("select p from Person p where p.address.city=Groningen")
 	public Person findAllPersonFromGroningen();
+	
 
 }
